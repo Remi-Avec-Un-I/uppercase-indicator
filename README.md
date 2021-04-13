@@ -30,3 +30,7 @@ put it in the the folder you had open in the step 3
 5 : 
 When you start your computer,  now it will create a system tray icon, and a cmd windows, you can close the cmd it doesn't matter
 You can now use it !
+
+
+
+I used this lib : https://github.com/Infinidat/infi.systray to make the system tray icon
