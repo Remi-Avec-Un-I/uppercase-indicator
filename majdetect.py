@@ -1,5 +1,7 @@
-from infi.systray import SysTrayIcon
-from pynput import keyboard
+from infi.systray import SysTrayIcon    #pip install infi.systray
+from win32api import GetKeyState, GetAsyncKeyState
+from win32con import VK_LSHIFT, VK_RSHIFT, VK_CAPITAL
+import time
 
 def majdetector(systray):
     print("Hello, World!")
@@ -7,31 +9,17 @@ def majdetector(systray):
 menu_options = (("Detecteur de Maj", None, majdetector),)
 systray = SysTrayIcon("vert.ico", "Detecteur de maj", menu_options)
 systray.start()
-
-
-MAJ = False
-
-def on_press(key):
-    global MAJ
-    try:
-        if key == keyboard.Key.caps_lock:
-            if MAJ:
-                MAJ = False
-            else:
-                MAJ = True           
-
-        elif key != key.caps_lock:
-            print("another things")
-    except AttributeError:
-        print("AttributeError")
     
-    if MAJ:
+while True:
+    if GetKeyState(VK_CAPITAL):
         systray.update(icon="rouge.ico")
-    elif MAJ == False:
-        systray.update(icon="vert.ico")
-
-
-
-with keyboard.Listener(on_press=on_press) as listener:
-    listener.join()
-    
+    else:
+        if GetAsyncKeyState(VK_LSHIFT) == -32767:
+            systray.update(icon="rouge.ico")
+            time.sleep(0.5)
+        else:
+            if GetAsyncKeyState(VK_RSHIFT) == -32767:
+                    systray.update(icon="rouge.ico")
+                    time.sleep(0.5)
+            else:
+                systray.update(icon="vert.ico")
