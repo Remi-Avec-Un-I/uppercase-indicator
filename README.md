@@ -12,7 +12,6 @@ You have to download it with the pip
 2 : 
 Open cmd and type:
 pip install infi.systray
-pip install pynput
 close the cmd
 
 Now you can use it, but you have to lunch it everytime using the lunch.bat file
