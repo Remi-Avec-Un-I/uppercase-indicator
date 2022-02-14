@@ -1,4 +1,4 @@
-# uppercase-indicator-in-a-system-tray-icon
+# uppercase indicator in a system tray icon
 Only works on Windows, I didn't try it on linux.
 
 
