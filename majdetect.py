@@ -14,13 +14,11 @@ systray.start()
 while True:
     if GetKeyState(VK_CAPITAL):
         systray.update(icon="rouge.ico")
+    elif GetAsyncKeyState(VK_LSHIFT) == -32767:
+        systray.update(icon="rouge.ico")
+        time.sleep(0.5)
+    elif GetAsyncKeyState(VK_RSHIFT) == -32767:
+        systray.update(icon="rouge.ico")
+        time.sleep(0.5)
     else:
-        if GetAsyncKeyState(VK_LSHIFT) == -32767:
-            systray.update(icon="rouge.ico")
-            time.sleep(0.5)
-        else:
-            if GetAsyncKeyState(VK_RSHIFT) == -32767:
-                    systray.update(icon="rouge.ico")
-                    time.sleep(0.5)
-            else:
-                systray.update(icon="vert.ico")
+        systray.update(icon="vert.ico")
